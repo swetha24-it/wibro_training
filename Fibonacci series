@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int m = sc.nextInt();
+
+        // Constraint check
+
+        if (n < 1 || m < 1 || n > 20 || m > 20) {
+
+            System.out.println("Invalid Input");
+
+            return;
+
+        }
+
+        // Generate Fibonacci series (0, 1, 1, 2, 3...)
+
+        int[] fib = new int[m + 1];
+
+        fib[1] = 0;
+
+        if (m >= 2) {
+
+            fib[2] = 1;
+
+        }
+
+        for (int i = 3; i <= m; i++) {
+
+            fib[i] = fib[i - 1] + fib[i - 2];
+
+        }
+
+        // Sum from position n to m (inclusive)
+
+        int sum = 0;
+
+        for (int i = n; i <= m; i++) {
+
+            sum += fib[i];
+
+        }
+
+        System.out.println("The Sum of Fibonacci value is " + (double) sum);
+
+    }
+
+}
